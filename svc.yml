@@ -8,11 +8,11 @@ spec:
   # nodePort is opened on every node in your cluster.
   type: NodePort
   ports:
-    - port: 80
-      nodePort: 30080
+    - port: 81
+      nodePort: 30081
       name: http
-    - port: 443
-      nodePort: 30443
+    - port: 444
+      nodePort: 30444
       name: https
   # assign cluster ip manually, The IP address that a user chooses must be a valid IP address
   # and within the service-cluster-ip-range
