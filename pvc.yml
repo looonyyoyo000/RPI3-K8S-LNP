@@ -1,0 +1,16 @@
+# A PersistentVolumeClaim (PVC) is a request for storage by a user.
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: rpi-lnp-pvc
+spec:
+  # A claim can request a particular class by specifying the name of
+  # a StorageClass using the attribute storageClassName.
+  storageClassName: standard
+  # Claims use the same conventions as volumes when requesting storage with specific access modes.
+  accessModes:
+    # ReadWriteOnce – the volume can be mounted as read-write by a single node
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi

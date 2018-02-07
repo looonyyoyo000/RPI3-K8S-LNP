@@ -1,0 +1,25 @@
+# A PersistentVolume (PV) is a piece of storage in the cluster that
+# has been provisioned by an administrator.
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: rpi-lnp-pv
+  labels:
+    type: local
+spec:
+  # A claim can request a particular class by specifying the name of
+  # a StorageClass using the attribute storageClassName.
+  storageClassName: standard
+  # Currently, storage size is the only resource that can be set or requested.
+  # Future attributes may include IOPS, throughput, etc.
+  capacity:
+    storage: 3Gi
+  accessModes:
+    # ReadWriteOnce – the volume can be mounted as read-write by a single node
+    - ReadWriteOnce
+  # HostPath (Single node testing only – local storage is not supported in any way
+  # and WILL NOT WORK in a multi-node cluster)
+  hostPath:
+    # A hostPath volume mounts a file or directory from the host node’s filesystem into your pod.
+    path: "/home/pirate/rpi-lnp/data"
+    #path: "/Users/jody/Projects/Minikube/shkp-k8s/shkpgh/data"

@@ -1,0 +1,52 @@
+# A service is an abstraction for pods, providing a stable, virtual IP (VIP) address.
+kind: Service
+apiVersion: v1
+metadata:
+  name: rpi-lnp-nginx-deploy
+spec:
+  # nodePort is the port that a client outside of the cluster will "see".
+  # nodePort is opened on every node in your cluster.
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 30080
+      name: http
+    - port: 443
+      nodePort: 30443
+      name: https
+  # assign cluster ip manually, The IP address that a user chooses must be a valid IP address
+  # and within the service-cluster-ip-range
+  clusterIP: 10.96.100.80
+  # just like the selector in the deployment,
+  # but this time it identifies the set of pods to load balance
+  # traffic to.
+  selector:
+    app: rpi-lnp-nginx
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: rpi-lnp-php71-deploy
+spec:
+  type: NodePort
+  ports:
+    - port: 9000
+      nodePort: 30070
+      name: php71
+  clusterIP: 10.96.100.70
+  selector:
+    app: rpi-lnp-php71
+# ---
+# kind: Service
+# apiVersion: v1
+# metadata:
+#   name: shkpgh-mysql57-deploy
+# spec:
+#   type: NodePort
+#   ports:
+#     - port: 3306
+#       nodePort: 30136
+#       name: php71
+#   clusterIP: 10.96.100.136
+#   selector:
+#     app: shkpgh-mysql57
