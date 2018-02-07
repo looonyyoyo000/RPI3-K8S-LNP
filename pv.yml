@@ -21,5 +21,5 @@ spec:
   # and WILL NOT WORK in a multi-node cluster)
   hostPath:
     # A hostPath volume mounts a file or directory from the host node’s filesystem into your pod.
-    path: "/home/pirate/rpi-lnp/data"
+    path: "/home/pirate/RPI3-K8S-LNP/data"
     #path: "/Users/jody/Projects/Minikube/shkp-k8s/shkpgh/data"
