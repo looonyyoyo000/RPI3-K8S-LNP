@@ -17,7 +17,7 @@ spec:
       name: https
   # assign cluster ip manually, The IP address that a user chooses must be a valid IP address
   # and within the service-cluster-ip-range
-  clusterIP: 10.96.100.80
+  clusterIP: 10.96.100.88
   # just like the selector in the deployment,
   # but this time it identifies the set of pods to load balance
   # traffic to.
@@ -35,7 +35,7 @@ spec:
     - port: 9000
       nodePort: 30070
       name: php71
-  clusterIP: 10.96.100.70
+  clusterIP: 10.96.100.77
   selector:
     app: rpi-lnp-php71
 # ---
