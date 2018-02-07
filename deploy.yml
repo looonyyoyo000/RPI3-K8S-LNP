@@ -71,10 +71,10 @@ spec:
             - containerPort: 9000
               name: php71
           volumeMounts:
-            - name: shkpgh-mounts
+            - name: rpi-lnp-mounts
               mountPath: "/www"
               subPath: www
-            - name: shkpgh-mounts
+            - name: rpi-lnp-mounts
               mountPath: "/usr/local/etc/php"
               subPath: php/7.1/usr/local/etc/php
       volumes:
