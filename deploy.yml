@@ -39,7 +39,7 @@ spec:
               # referenced volume instead of its root.
               subPath: www
             - name: rpi-lnp-mounts
-              mountPath: "/etc/nginx/conf.d"
+              mountPath: "/nginx/conf.d"
               subPath: nginx/conf.d
       volumes:
         # define a volume name use for volumeMounts
