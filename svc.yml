@@ -3,15 +3,16 @@ kind: Service
 apiVersion: v1
 metadata:
   name: rpi-lnp-nginx-deploy
+  namespace: rpi-lnp
 spec:
   # nodePort is the port that a client outside of the cluster will "see".
   # nodePort is opened on every node in your cluster.
   type: NodePort
   ports:
-    - port: 81
+    - port: 80
       nodePort: 30081
       name: http
-    - port: 444
+    - port: 443
       nodePort: 30444
       name: https
   # assign cluster ip manually, The IP address that a user chooses must be a valid IP address
@@ -27,6 +28,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: rpi-lnp-php71-deploy
+  namespace: rpi-lnp
 spec:
   type: NodePort
   ports:

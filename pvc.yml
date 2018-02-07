@@ -3,6 +3,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: rpi-lnp-pvc
+  namespace: rpi-lnp
 spec:
   # A claim can request a particular class by specifying the name of
   # a StorageClass using the attribute storageClassName.
