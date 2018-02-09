@@ -74,11 +74,11 @@ spec:
               name: php71
           volumeMounts:
             - name: rpi-lnp-mounts
-              mountPath: "/www"
+              mountPath: "/var/www/html"
               subPath: www
-            - name: rpi-lnp-mounts
-              mountPath: "/usr/local/etc/php"
-              subPath: php/7.1/usr/local/etc/php
+            # - name: rpi-lnp-mounts
+            #   mountPath: "/usr/local/etc/php"
+            #   subPath: php/7.1/usr/local/etc/php
       volumes:
         - name: rpi-lnp-mounts
           persistentVolumeClaim:
